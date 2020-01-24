@@ -44,9 +44,6 @@ import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
-  created() {
-    console.log(this.GET_ALL_ROUTES());
-  },
   components: {
     Logo,
     VuetifyLogo
