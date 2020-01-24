@@ -2,7 +2,7 @@
   <v-app dark>
     <LeftDrawer
       :drawer="drawer"
-      :items="items"
+      :items="getRoutesByRole"
       :miniVariant="miniVariant"
       :clipped="clipped"
       :fixed="fixed"
@@ -20,11 +20,13 @@
       @rightDrawerToggle="rightDrawer = !rightDrawer"
     />
 
+    <!-- Layout Content Start -->
     <v-content>
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
+    <!-- Layout Content End -->
 
     <RightNavigationDrawer
       :fixed="fixed"
@@ -55,7 +57,16 @@ export default {
       items: masterLayoutRoute,
       miniVariant: false,
       rightDrawer: false,
-      title: 'Master'
+      title: 'Master',
+      user: {
+        name: 'Something',
+        role: 'Admin'
+      }
+    }
+  },
+  computed: {
+    getRoutesByRole() {
+      return this.GET_ROUTE_BY_ROLE(this.user.role)
     }
   },
   methods: {

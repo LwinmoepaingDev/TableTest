@@ -1,4 +1,5 @@
 const colors = require('vuetify/es5/util/colors').default
+const config = require('./configs')
 
 module.exports = {
   mode: 'universal',
@@ -30,6 +31,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/customNavigatorPlugin.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -43,6 +45,9 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+
+    // Doc: https://nuxt-community.github.io/nuxt-i18n
+    'nuxt-i18n'
   ],
   /*
   ** Axios module configuration
@@ -50,6 +55,11 @@ module.exports = {
   */
   axios: {
   },
+  /*
+  ** i18n module configuration
+  ** See https://nuxt-community.github.io/nuxt-i18n/options-reference.html
+  */
+  i18n: config.i18n,
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
